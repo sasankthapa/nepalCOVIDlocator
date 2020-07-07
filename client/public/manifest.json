@@ -1,0 +1,15 @@
+{
+  "short_name": "COVID Locator",
+  "name": "Nepal COVID Locator",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "size": "32x32",
+      "type":"image/png"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
