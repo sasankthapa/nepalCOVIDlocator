@@ -40,7 +40,7 @@ entrySchema.methods.toJSON=function(){
     delete userObject._v
     delete userObject.name
     delete userObject.age
-    delete userObject.phoneNumber
+    delete userObject.phonenumber
 
     return userObject
 }

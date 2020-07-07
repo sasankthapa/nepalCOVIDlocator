@@ -1,2 +1,4 @@
 /server/configs
 /*/node_modules
+client/build
+/server/ecosystem.config.js

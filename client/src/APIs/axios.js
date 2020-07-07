@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:3001' : 'production build';
+const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:3001' : 'https://nepalcovidlocator.com/api';
 
 export async function getEntries(){
     try{

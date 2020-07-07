@@ -10,12 +10,11 @@ const PORT=process.env.PORT||3000
 
 app.use(cors());
 
-var corsOptions={
-    origin:'http://localhost:3000',
-    optionsSuccessStatus:200
-}
+app.get('/api/',(req,res)=>{
+	res.send('hello')
+});
 
-app.get('/entry', async(req,res)=>{
+app.get('/api/entry', async(req,res)=>{
     try{
         const entries=await Entry.find({})
         res.status(200).send(entries);
@@ -24,7 +23,7 @@ app.get('/entry', async(req,res)=>{
     }
 })
 
-app.post('/entry', async(req,res)=>{
+app.post('/api/entry', async(req,res)=>{
     console.log(req.body);
     const entry=new Entry(req.body);
     try{
