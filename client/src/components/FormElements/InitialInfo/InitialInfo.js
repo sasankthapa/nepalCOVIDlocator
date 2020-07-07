@@ -14,9 +14,10 @@ const InitialInfo = (props) => {
 
     return (
         <div className={classes}>
-            <h2>नमस्ते!</h2>
+            <h2>नमस्ते</h2>
             <p>This page is intended for COVID patients to report their locations so we have better knowledge of COVID all over Nepal.</p>
-            <h2>कृपया हजुरलाइ COVID निदान गरिएको छ भने फारम भर्नुहोला।</h2>
+            <h2>कृपया हजुरलाई COVID निदान गरिएको छ भने फारम भर्नुहोला।</h2>
+            <small style={{marginRight:'20px'}}><a href="mailto:sasank.thapa2000@gmail.com">contact</a></small>
             <button onClick={closeInfo}>Close</button>
         </div>
     )

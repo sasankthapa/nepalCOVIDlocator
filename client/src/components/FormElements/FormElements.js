@@ -6,7 +6,7 @@ import InitialForm from './InitialInfo/InitialInfo'
 import './FormElements.css'
 
 import { findDistrict } from '../../HelperFunctions/findDistrict'
-
+import { getLocation } from '../../APIs/getLocation'
 import Aux from '../../hoc/Aux'
 
 export default class FormElements extends Component{
@@ -18,31 +18,21 @@ export default class FormElements extends Component{
     DISTRICT="";
 
     askBrowserForLocation=()=>{
-        if(navigator.geolocation){
-            navigator.geolocation.getCurrentPosition((position)=>{
-                const lat=position.coords.latitude
-                const long=position.coords.longitude
-                var district=findDistrict(lat,long)
-                if(!district){
-                    alert('not in nepal...')
-                    return;
-                }
-                this.DISTRICT=district;
-                this.props.updateLatLong({
-                    lat,
-                    long,
-                    zoom:14,
-                    fillingForm:true,
-                    DISTRICT:district
-                })
-                this.showForm(true);
-            }, ()=>{
-                alert('Please enable geolocation on your device.');
-            })
-        }else{
-            alert('Geolocation is not supported');
+        const {lat,long}=getLocation();
+        var district=findDistrict(lat,long)
+        if(!district){
+            alert('not in nepal...')
+            return;
         }
-        
+        this.DISTRICT=district;
+        this.props.updateLatLong({
+            lat,
+            long,
+            zoom:14,
+            fillingForm:true,
+            DISTRICT:district
+        })
+        this.showForm(true);
     }
 
     showForm(showForm){

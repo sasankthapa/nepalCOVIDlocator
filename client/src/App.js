@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 
+import Header from './components/Header/header'
 import Map from './components/Map/Map';
 import FormElements from './components/FormElements/FormElements';
 
@@ -30,10 +31,11 @@ function App() {
 
     sendForm(formData);
   }
+  //<h1>नेपाल COVID लोकेतोर।</h1>
 
   return (
     <div className="App">
-      <h1>नेपाल COVID लोकेतोर।</h1>
+      <Header />
       <div id="wrapper">
         <Map lat={curr.lat} long={curr.long} zoom={curr.zoom} fillingForm={curr.fillingForm} DEVupdatePos={setLatLong}/>
         <FormElements updateLatLong={setLatLong} submitForm={submitFormRequest}/>

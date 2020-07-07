@@ -33,7 +33,7 @@
     margin:0
 }
 
-.container small{
+.container small:first-of-type{
     color:rgb(204, 19, 19);
     display: block;
     margin:0 0 10px 0;

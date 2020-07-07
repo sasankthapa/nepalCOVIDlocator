@@ -26,9 +26,17 @@ const Form = (props) => {
 
     const validateAndHandleSubmit=(e)=>{
         e.preventDefault()
+        var reg=new RegExp('^[0-9]+$');
+        console.log(reg.test(formData.phonenumber));
         if(formData.name==='' || formData.phonenumber==='' || formData.age===null){
             alert('Please fill the required fields');
             return;
+        }else if(formData.age>120){
+            alert('Check Age');
+            return;
+        }else if(!reg.test(formData.phonenumber)||formData.phonenumber.slice(0,2)!=='98'||formData.phonenumber.length!==10){
+            alert('Check phone number');
+            return
         }
         props.handleSubmitClick(formData)
     }
@@ -57,6 +65,7 @@ const Form = (props) => {
                 <label htmlFor="Message">Message: </label>
                 <textarea id="message" maxLength="150" rows="3" placeholder="Leave a message for people to see!" onChange={onChangeHandler}></textarea>
             </div>
+            <small>Please make sure you only report if tested positive.</small>
             <button className="button" type="submit">Submit</button>
         </form>        
     )

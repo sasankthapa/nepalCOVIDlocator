@@ -11,6 +11,10 @@
     padding:0px 10px;
 }
 
+.initialInfo * {
+    margin:0;
+}
+
 @media (max-width:500px){
     .initialInfo{
         width:75%;
