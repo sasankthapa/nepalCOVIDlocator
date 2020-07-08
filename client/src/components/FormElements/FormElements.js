@@ -23,6 +23,11 @@ export default class FormElements extends Component{
         this.setState({ hasUsersLocation:true })
         getLocation().then(({lat,long})=>{
             var district=findDistrict(lat,long)
+            // if(!district){
+            //     district="DARCHULA"
+            // }else if(district==="DARCHULA"){
+            //     district=undefined;
+            // }
             if(!district){
                 alert('not in nepal...')
                 return;

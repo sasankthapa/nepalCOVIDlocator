@@ -11,6 +11,7 @@ import './Map.css'
 
 import {getEntries} from '../../APIs/axios'
 import { updateNumberOfCases } from '../../HelperFunctions/findDistrict'
+import { findDistrict } from '../../HelperFunctions/findDistrict'
 
 export default class MainMap extends Component{
     state={
@@ -25,7 +26,7 @@ export default class MainMap extends Component{
 
     DEVonDragEndHandler=(e)=>{
         var latlng=e.target.getCenter()
-        console.log(this.props)
+        console.log(findDistrict(latlng.lat,latlng.lng))
         this.props.DEVupdatePos({lat:latlng.lat,long:latlng.lng,fillingForm:true,zoom:10})
     }
 

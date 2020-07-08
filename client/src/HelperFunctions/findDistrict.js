@@ -6,7 +6,7 @@ import province5 from '../assets/province5.json'
 import province6 from '../assets/province6.json'
 import province7 from '../assets/province7.json'
 
-var inside=require('point-in-polygon');
+const turf = require('@turf/turf');
 
 const provinces=[province1,province2,province3,province4,province5,province6,province7]
 export const casesReportedMap={}
@@ -21,20 +21,15 @@ const initializeCasesReported = () =>{
 
 initializeCasesReported()
 
-const getDistrictCoords = (district) =>{
-    return district.geometry.coordinates
-}
-
 export const findDistrict = (lat,long) => {
+    const point=[long,lat];
     for (const province of provinces){
-        for(const district of province.features){
-            const coords=getDistrictCoords(district);
-            if(inside([lat,long],coords)){
-                return district.properties.DISTRICT
+        for(const district of province.features){            
+            if(turf.booleanPointInPolygon(point,district)){
+                return (district.properties.DISTRICT)
             }
         }
     }
-    return null;
 }
 
 export const updateNumberOfCases = (entries) => {
