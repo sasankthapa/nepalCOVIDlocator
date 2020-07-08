@@ -15,16 +15,37 @@ const provinceArray=[province1, province2, province3, province4, province5, prov
 
 
 const GeoJSONs = (props) => {
-    function getColor(feature){
-        if(isEmptyObject(props.currentFeature)){
-            return '#3322ff'
-        }else if(props.currentFeature.properties.DISTRICT===feature.properties.DISTRICT){
-            return '#ccc'
+    function basedOnProvince(province){
+        switch(province){
+            case 7:
+                return '#59d97b'
+            case 1:
+                return '#59d9c6'
+            case 2:
+                return '#6570eb'
+            case 3:
+                return '#eb6565'
+            case 4:
+                return '#ebc565'
+            case 5:
+                return '#65e2eb'
+            case 6:
+                return '#b77bdd'
+            default:
+                return '#222'
         }
+    }
+
+    function getColor(feature){
+        if(!isEmptyObject(props.currentFeature)){
+            if(props.currentFeature.properties.DISTRICT===feature.properties.DISTRICT){
+                return '#ccc'
+            } 
+        }
+        return basedOnProvince(feature.properties.PROVINCE);
         //if(!isEmptyObject(feature) && props.currentFeature.properties.DISTRICT===feature.properties.DISTRICT){
         //    return '#ccc'
         //}
-        return '#3322ff'
     }
   
     function highLightFeature(e){
@@ -50,7 +71,7 @@ const GeoJSONs = (props) => {
             fillColor:getColor(feature),
             color:'black',
             fillOpacity:0.7,
-            dashArray:feature.properties.PROVINCE
+            dashArray:0
         };
     }
     

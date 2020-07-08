@@ -3,17 +3,13 @@ const mongoose=require('mongoose');
 const entrySchema=new mongoose.Schema({
     name:{
         type:String,
-        required:true,
         trim:true
     },
     phonenumber:{
         type:Number,
-        unique:true,
-        required:true
     },
     age:{
         type:Number,
-        required:true
     },
     lat:{
         type:Number,
@@ -28,7 +24,7 @@ const entrySchema=new mongoose.Schema({
         required:true
     },
     message:{
-        type:String
+        type:String,trim:true
     }
 })
 
@@ -37,7 +33,7 @@ entrySchema.methods.toJSON=function(){
     const userObject=entry.toObject();
 
     delete userObject._id
-    delete userObject._v
+    delete userObject.__v
     delete userObject.name
     delete userObject.age
     delete userObject.phonenumber

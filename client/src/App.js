@@ -16,6 +16,15 @@ function App() {
     fillingForm:false
   })
 
+  const resetStateHandler=()=>{
+    setLatLong({
+      lat:27,
+      long:85,
+      zoom:5,
+      fillingForm:false
+    })
+  }
+
   const submitFormRequest=(formData)=>{
     const latlng={
       ...curr
@@ -38,7 +47,7 @@ function App() {
       <Header />
       <div id="wrapper">
         <Map lat={curr.lat} long={curr.long} zoom={curr.zoom} fillingForm={curr.fillingForm} DEVupdatePos={setLatLong}/>
-        <FormElements updateLatLong={setLatLong} submitForm={submitFormRequest}/>
+        <FormElements updateLatLong={setLatLong} submitForm={submitFormRequest} resetLatLong={resetStateHandler}/>
       </div>
     </div>
   );

@@ -3,7 +3,7 @@ export function getLocation() {
       navigator.geolocation.getCurrentPosition((position) => {
         resolve({
           lat: position.coords.latitude,
-          lng: position.coords.longitude
+          long: position.coords.longitude
         });
       }, () => {      
         resolve(fetch('https://ipapi.co/json')
@@ -11,7 +11,7 @@ export function getLocation() {
           .then(location => {
             return {
               lat: location.latitude,
-              lng: location.longitude
+              long: location.longitude
             };
           }));
       });

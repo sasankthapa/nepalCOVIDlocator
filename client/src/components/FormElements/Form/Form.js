@@ -28,13 +28,10 @@ const Form = (props) => {
         e.preventDefault()
         var reg=new RegExp('^[0-9]+$');
         console.log(reg.test(formData.phonenumber));
-        if(formData.name==='' || formData.phonenumber==='' || formData.age===null){
-            alert('Please fill the required fields');
-            return;
-        }else if(formData.age>120){
+        if(formData.age>120){
             alert('Check Age');
             return;
-        }else if(!reg.test(formData.phonenumber)||formData.phonenumber.slice(0,2)!=='98'||formData.phonenumber.length!==10){
+        }else if(formData.phonenumber!=='' && (!reg.test(formData.phonenumber)||formData.phonenumber.slice(0,2)!=='98'||formData.phonenumber.length!==10)){
             alert('Check phone number');
             return
         }
@@ -44,21 +41,21 @@ const Form = (props) => {
     return (
         <form className="container" onSubmit={validateAndHandleSubmit}>
             <h2>Please keep social distancing.</h2>
-            <small>* are required</small>
+            <small>all fields are optional but suggested to fill everything</small>
             <div className="formControl">
-                <label htmlFor="name">Name<sup>*</sup>: </label>
+                <label htmlFor="name">Name </label>
                 <input id="name" type="text" autoComplete="off" onChange={onChangeHandler}/>    
             </div>
             <div className="formControl">
-                <label htmlFor="phonenumber">Phone Number<sup>*</sup>: </label>
+                <label htmlFor="phonenumber">Phone Number </label>
                 <input id="phonenumber" type="text" maxLength={10} onChange={onChangeHandler}/>
             </div>
             <div className="formControl">
-                <label htmlFor="age">Age<sup>*</sup>: </label>
+                <label htmlFor="age">Age </label>
                 <input id="age" type="number" min="1" onChange={onChangeHandler} placeholder="1"/>
             </div>
             <div className="formControl">
-                <label htmlFor="District">District: </label>
+                <label htmlFor="District">District:<sup>*</sup> </label>
                 <input id="DISTRICT" type="text" value={formData.DISTRICT} onChange={onChangeHandler} disabled/>
             </div>       
             <div className="formControl">
@@ -66,7 +63,8 @@ const Form = (props) => {
                 <textarea id="message" maxLength="150" rows="3" placeholder="Leave a message for people to see!" onChange={onChangeHandler}></textarea>
             </div>
             <small>Please make sure you only report if tested positive.</small>
-            <button className="button" type="submit">Submit</button>
+            <button className="button" type="submit">Submit</button>      
+            <button className="button" type="button" onClick={props.closeForm}>Close</button>           
         </form>        
     )
 }

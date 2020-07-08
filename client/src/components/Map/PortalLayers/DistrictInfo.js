@@ -7,7 +7,7 @@ const districtInfo = (props) => {
     return (
         <div className="info">
             <h2 style={{marginTop:'10px'}}>{districtName}</h2>
-            <h4>Cases Reported: {casesReported}</h4>
+            <h4>Entries: {casesReported}</h4>
         </div>
     )
 }
