@@ -1,0 +1,38 @@
+.Sidedrawer{
+    position: fixed;
+    width:240px;
+    max-width: 70%;
+    height:100%;
+    left:0;
+    top:0;
+    background-color: white;
+    z-index: 1001;
+    padding:0;
+    box-sizing: border-box;
+    transition: transform 0.3s ease-in;
+}
+
+.Sidedrawer h1{
+    width: 100%;
+    margin:0;
+    margin-bottom:12px;
+    padding:32px 16px 16px 16px;
+    border-bottom: 2px solid black;
+}
+@media (min-width:610px){
+    .Sidedrawer{
+        display:none
+    }
+}
+
+.Open{
+    transform:translateX(0);
+}
+
+.Closed{
+    transform: translateX(-100%);
+}
+
+nav {
+    color:black
+}

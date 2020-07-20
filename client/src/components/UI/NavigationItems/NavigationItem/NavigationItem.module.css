@@ -1,0 +1,85 @@
+.NavigationItem{
+    box-sizing: border-box;
+    display:block;
+    width:100%;
+}
+
+.NavigationItem a{
+    color:#000;
+    text-decoration: none;
+    width: 100%;
+    box-sizing: border-box;
+    padding:12px 20px;
+    display: block;
+}
+
+.NavigationItem a:hover,
+.NavigationItem a:active,
+.NavigationItem a.active{
+    background-color: #E0E1DD;
+}   
+
+@media (min-width:610px){
+    .NavigationItem{
+        margin:0 10px;
+        width: auto;
+        height: 100%;
+        display: flex;
+        text-align: center;
+        padding: 0;
+    }
+    
+    .NavigationItem a{
+        color:black;
+        width:auto;
+        height: 100%;
+        padding:12px 5px;
+        border-bottom: 4px solid transparent;
+    }
+    
+    .NavigationItem a:hover{
+        color:white;
+        background-color: none;
+    }
+
+    .NavigationItem a:active,
+    .NavigationItem a.active{
+        background-color: inherit;
+        color:white;
+        border-bottom: 5px solid black;
+    }    
+
+    .NavigationItem:nth-child(3) a{
+        padding: 12px 15px;
+    }    
+    .NavigationItem a:hover,
+    .NavigationItem a:active,
+    .NavigationItem a.active{
+        background-color: inherit;
+        color:#e0e1dd;
+}   
+}
+
+@media(min-height:800px){
+    .NavigationItem a{
+        font-size: 20px;
+        padding:20px 5px;
+    }
+
+    .NavigationItem:nth-child(3) a{
+        font-size: 20px;
+        padding:20px 20px;
+    }
+}
+
+@media(min-height:1200px){
+    .NavigationItem a{
+        font-size: 20px;
+        padding:25px 5px;
+    }
+
+    .NavigationItem:nth-child(3) a{
+        font-size: 20px;
+        padding:25px 20px;
+    }
+}

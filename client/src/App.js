@@ -7,6 +7,9 @@ import FormElements from './components/FormElements/FormElements';
 import { sendForm } from './APIs/axios.js'
 import 'leaflet/dist/leaflet.css'
 import './App.css';
+import { Switch, Route } from 'react-router-dom';
+
+import Visual from './components/Visual/Visual'
 
 function App() {
   const [curr,setLatLong]= useState({
@@ -41,13 +44,24 @@ function App() {
     sendForm(formData);
   }
   //<h1>नेपाल COVID लोकेतोर।</h1>
-
+//<Visual />
   return (
-    <div className="App">
+<div className="App">
       <Header />
       <div id="wrapper">
-        <Map lat={curr.lat} long={curr.long} zoom={curr.zoom} fillingForm={curr.fillingForm} DEVupdatePos={setLatLong}/>
-        <FormElements updateLatLong={setLatLong} submitForm={submitFormRequest} resetLatLong={resetStateHandler}/>
+          
+          <Switch>
+            <Route path='/visual'>
+              <Visual/>
+            </Route>
+            <Route path='/info'>
+
+            </Route>
+            <Route path='/' exact>
+              <Map lat={curr.lat} long={curr.long} zoom={curr.zoom} fillingForm={curr.fillingForm} DEVupdatePos={setLatLong}/>
+              <FormElements updateLatLong={setLatLong} submitForm={submitFormRequest} resetLatLong={resetStateHandler}/>
+            </Route>
+          </Switch>
       </div>
     </div>
   );

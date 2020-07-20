@@ -41,7 +41,7 @@ export default class MainMap extends Component{
                 <TileLayer
                     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-                />
+                />   
                 <GeoJSONs currentFeature={this.state.feature} updateStateInMaps={this.updateCurrentFeature.bind(this)}/>
                 {this.props.fillingForm ? <Marker position={position}/>:''}
                 <Markers entries={this.state.entries} />

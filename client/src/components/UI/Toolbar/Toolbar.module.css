@@ -1,0 +1,54 @@
+.Toolbar{
+    height:7%;
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding:0 30px;
+    box-sizing: border-box;
+    z-index: 90;
+    margin:0;
+    background: #eb5743;
+}
+
+.Toolbar h2{
+    color:white
+}
+
+.Toolbar nav{
+    height: 100%;
+}
+
+.Menu{
+    width:30px;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin:0;
+}
+
+.Menu:hover{
+    background-color: #eb5743;
+}
+
+.Menu .Bar{
+    margin:1px;
+    padding:0;
+    width:60%;
+    height:0.7vh;
+    background-color: white;
+}
+
+@media(max-width:610px){
+    .DesktopOnly{
+        display:none;
+    }
+}
+
+@media(min-width:611px){
+    .MobileOnly{
+        display: none;
+    }
+}

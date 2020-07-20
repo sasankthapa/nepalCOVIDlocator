@@ -1,0 +1,65 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap');
+
+.VisualContainer{
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    height: 100%;
+    width:100%;
+    overflow: none;
+    background: #070707;
+}
+
+.VisualContainer *{
+    font-family:"Open Sans";
+}
+
+.VisualContainer > .flexContainer {
+    box-sizing: border-box;
+    height: 100%;
+    width: 60%;
+    padding: 10px;
+    display: block;
+}
+
+.VisualContainer > .flexContainer:nth-child(2) {
+    width: 40%;
+}
+
+.Map{
+    height: 100%;
+    width: 100%;
+    background-color: rgb(0, 0, 0);
+    cursor: pointer;
+    border: 4px solid rgb(39, 39, 39);
+    border-radius: 2vh;
+}
+
+.VisualDesc{
+    height:100%;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+}
+
+@media(max-width:900px){
+    .VisualContainer{
+        flex-direction: column;
+    }
+
+    .VisualContainer > .flexContainer {
+        height: 40%;
+        width: 100%;
+        padding: 5px;
+        display: block;
+    }
+    
+    .VisualContainer > .flexContainer:nth-child(2) {
+        height: 60%;
+        width:100%;
+    }
+
+    .VisualDesc{
+        flex-direction: row;
+    }
+}

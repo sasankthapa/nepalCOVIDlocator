@@ -66,7 +66,7 @@ const GeoJSONs = (props) => {
 
     function setStyle(feature){
         return {
-            weight:3,
+            weight:1,
             opacity:0.7,
             fillColor:getColor(feature),
             color:'black',
