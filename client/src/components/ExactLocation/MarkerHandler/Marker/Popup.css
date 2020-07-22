@@ -1,0 +1,12 @@
+.HospitalInfo .leaflet-popup-content-wrapper {
+    background-color: black;
+    color:white;
+}
+
+.HospitalInfo .leaflet-popup-content {
+    background-color: black;
+}
+
+.HospitalInfo .leaflet-popup-tip{
+    background-color: black;
+}

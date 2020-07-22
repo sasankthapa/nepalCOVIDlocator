@@ -4,7 +4,7 @@ import classes from './styling.module.css'
 
 const legend = (props) => {
 
-    if(!props.showLegend){
+    if(!props.showLegend && props.sortedBy!=='name'){
         return <button style={{margin:"0",padding:"0",background:"none",color:'white',fontSize:'2em',border:"none"}} onClick={()=>props.legendHandler()}>+</button>
     }
 

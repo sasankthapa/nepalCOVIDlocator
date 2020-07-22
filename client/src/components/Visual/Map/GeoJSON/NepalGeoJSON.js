@@ -45,7 +45,22 @@ const NepalGeoJSON = (props) => {
                           '#FFEDA0';
     }
 
+    const exactMapStyle=(curr)=>{
+        const province=curr.properties.PROVINCE
+        return {
+            weight:1,
+            opacity:0.5,
+            fillColor:basedOnProvince(province),
+            color:'black',
+            fillOpacity:0.5,
+            dashArray:0,
+        }
+    }
+
     const setStyle = (curr) =>{
+        if(props.showTiles){
+            return exactMapStyle(curr);
+        }
         var districtName=curr.properties.DISTRICT.toLowerCase()
         const province=curr.properties.PROVINCE
         const districtData=Districts[map[districtName]];
@@ -70,9 +85,13 @@ const NepalGeoJSON = (props) => {
     }
 
     const onEachFeatureHandler=(feature,layer)=>{
-        layer.on({
-            click:(e)=>{props.clickHandler(e.target.feature.properties.DISTRICT.toLowerCase())}
-        })
+        if(!props.showTiles){
+            layer.on({
+                click:(e)=>{props.clickHandler(e.target.feature.properties.DISTRICT.toLowerCase())}
+            })    
+        }else{
+            
+        }
     }
 
     return (Nepal.features.map((element,index)=>{

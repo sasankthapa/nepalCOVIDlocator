@@ -9,6 +9,7 @@ import 'leaflet/dist/leaflet.css'
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 
+import ExactLocation from './components/ExactLocation/ExactLocation'
 import Visual from './components/Visual/Visual'
 
 function App() {
@@ -58,8 +59,9 @@ function App() {
 
             </Route>
             <Route path='/' exact>
-              <Map lat={curr.lat} long={curr.long} zoom={curr.zoom} fillingForm={curr.fillingForm} DEVupdatePos={setLatLong}/>
-              <FormElements updateLatLong={setLatLong} submitForm={submitFormRequest} resetLatLong={resetStateHandler}/>
+              <ExactLocation />
+              {/* <Map lat={curr.lat} long={curr.long} zoom={curr.zoom} fillingForm={curr.fillingForm} DEVupdatePos={setLatLong}/>
+              <FormElements updateLatLong={setLatLong} submitForm={submitFormRequest} resetLatLong={resetStateHandler}/> */}
             </Route>
           </Switch>
       </div>

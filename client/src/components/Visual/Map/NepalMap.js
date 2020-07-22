@@ -1,10 +1,11 @@
 import React from 'react';
-import { Map, ZoomControl } from 'react-leaflet';
+import { Map, ZoomControl, TileLayer } from 'react-leaflet';
 import Portal from 'react-leaflet-portal'
 
 import SelectedDistrict from './ControlLayer/SelectedDistrict'
 import Legend from './ControlLayer/Legend'
 import NepalGeoJSON from './GeoJSON/NepalGeoJSON'
+import MarkerHandler from '../../ExactLocation/MarkerHandler/MarkerHandler';
 
 const nepalMap = (props) => {
     const DEVondragend= (e) => {
@@ -15,13 +16,18 @@ const nepalMap = (props) => {
     const districtInfoPortal=props.current?(
         <SelectedDistrict current={props.current} sortedBy={props.sortedBy} closeHandler={props.clickHandler}/>):'';
     
+    console.log(props.showMarkers)
     return (
         <Map center={props.position} zoom={props.zoom} 
             ondragend={DEVondragend}
             {...props.settings}
             {...props.inlineS}
             >
-            <NepalGeoJSON clickHandler={props.clickHandler} current={props.current} sortedBy={props.sortedBy}/>
+            {props.showTiles?<TileLayer
+                    attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
+                    url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+                /> : ''}
+            <NepalGeoJSON clickHandler={props.clickHandler} current={props.current} sortedBy={props.sortedBy}  showTiles={props.showTiles}/>
             <ZoomControl position="bottomright" zoomInText=" + " zoomOutText=" - "/>
             <Portal position="topright">
             {districtInfoPortal}
@@ -29,6 +35,7 @@ const nepalMap = (props) => {
             <Portal position="bottomleft">
                 <Legend showLegend={props.showLegend} sortedBy={props.sortedBy} legendHandler={props.legendHandler}/>
             </Portal>
+            {props.showMarkers? <MarkerHandler hospital={props.showHospital} /> : ''}
         </Map>
     )
 }
