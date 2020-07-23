@@ -55,13 +55,13 @@ export default class Visual extends Component {
                     clickHandler={this.districtClickHandler.bind(this)}
                     legendHandler={this.legendToggleHandler.bind(this)}
                     settings={{
-                    className:classes.Map,
-                    maxBounds:[[25,79],[31,90]],
-                    attributionControl: false,
-                    minZoom:6,
-                    maxZoom:7,
-                    zoomControl:false,
-                    scrollWheelZoom: true}} 
+                        className:classes.Map,
+                        maxBounds:[[25,79],[31,90]],
+                        attributionControl: false,
+                        minZoom:6,
+                        maxZoom:7,
+                        zoomControl:false,
+                        scrollWheelZoom: true}} 
                     />  
                 </div>
                 <div className={classes.flexContainer}>

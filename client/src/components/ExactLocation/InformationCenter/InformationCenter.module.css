@@ -1,12 +1,56 @@
 .container{
     background-color: white;
     width:100%;
-    padding:2vh;
+    padding:1px;
     border:2px solid black;
     border-radius: 20px;
+    animation: enter 0.3s ease-in;
+    margin: 10px 0;
+}
+
+@keyframes enter{
+    0%{
+        transform: translateX(100%);
+    }
+    100%{
+        transform: translateX(0);
+    }
 }
 
 .CheckboxContainer{
     display: flex;
-    padding:10px;
+    justify-content: center;
+    align-items: center;
+    padding:10px 30px;
+}
+
+.InfoContainer{
+    position: relative;
+    padding:0;
+    color: black;
+}
+
+.close{
+    font-weight: bolder;
+    font-size: 20px;
+    position: absolute;
+    top:-15px;
+    right:15px;
+    cursor: pointer;
+}
+
+.InfoContainer *{
+    margin:0;
+    padding:0;
+    text-align: left;
+}
+
+.InfoContainer h2{
+    text-align: center;
+    margin: 20px 0;
+    margin-bottom: 0;
+}
+
+.InfoContainer p{
+    margin:5px 20px;
 }

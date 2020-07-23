@@ -47,12 +47,13 @@ const NepalGeoJSON = (props) => {
 
     const exactMapStyle=(curr)=>{
         const province=curr.properties.PROVINCE
+        console.log(props.geojsonHide);
         return {
             weight:1,
             opacity:0.5,
             fillColor:basedOnProvince(province),
             color:'black',
-            fillOpacity:0.5,
+            fillOpacity:curr.properties.DISTRICT===props.geojsonHide?0:0.5,
             dashArray:0,
         }
     }
@@ -90,7 +91,10 @@ const NepalGeoJSON = (props) => {
                 click:(e)=>{props.clickHandler(e.target.feature.properties.DISTRICT.toLowerCase())}
             })    
         }else{
-            
+            layer.on({
+                click:(e)=>{
+                    props.geojsonClickHandler(e.target.feature.properties.DISTRICT)}
+                })
         }
     }
 

@@ -10,8 +10,13 @@ const MarkerHandler = (props) =>{
     return (
         <Aux>
             {props.hospital?hospitalArray.map((element,index)=>{
-                return <Marker key={index} position={[element.lat,element.long]} message={element.Name}/>
-            }):''}
+                return <Marker 
+                    key={index} 
+                    current={element} 
+                    position={[element.lat,element.long]} 
+                    message={element.Name} 
+                    updateHospitalHandler={props.updateHospitalHandler}/>
+                }):''}
         </Aux>
     )
 }

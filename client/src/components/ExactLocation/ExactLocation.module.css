@@ -20,7 +20,6 @@
     width: 40%;
 }
 
-
 .Map{
     height: 100%;
     width: 100%;
@@ -53,9 +52,5 @@
     .container > .flexContainer:nth-child(2) {
         height: 60%;
         width:100%;
-    }
-
-    .InfoContainer{
-        flex-direction: row;
     }
 }

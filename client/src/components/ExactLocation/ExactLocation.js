@@ -11,15 +11,25 @@ export default class ExactLocation extends Component{
         position:[28.468664402097676,84.16637133707813],
         zoom:window.innerWidth>900?7:6,
         currentHospital:null,
-        showHospital:false
+        showHospital:false,
+        geojsonHide:null
     }
 
     updateHospitalHandler(hospital){
+        if(hospital===null){
+            return this.setState({currentHospital:null})
+        }
         this.setState({currentHospital:hospital});
     }
 
     selectHospitalHandler(value){
         this.setState({showHospital:value})
+    }
+
+    geojsonClickHandler=(name)=>{
+        if(this.state.geojsonHide && this.state.geojsonHide===name) 
+            return this.setState({geojsonHide:null})
+        this.setState({geojsonHide:name})
     }
 
     render(){
@@ -29,11 +39,16 @@ export default class ExactLocation extends Component{
                     <NepalMap position={this.state.position}
                         zoom={this.state.zoom}
                         settings={{
-                            className:classes.Map
+                            className:classes.Map,
+                            minZoom:6,
+                            zoomControl:false,
                         }}
                         showTiles
                         showMarkers
+                        updateHospitalHandler={this.updateHospitalHandler.bind(this)}
                         showHospital={this.state.showHospital}
+                        geojsonHide={this.state.geojsonHide}
+                        geojsonClickHandler={this.geojsonClickHandler.bind(this)}
                     />
                 </div>
                 <div className={classes.flexContainer}>
@@ -42,7 +57,8 @@ export default class ExactLocation extends Component{
                             className:classes.InfoContainer
                         }}
                         selectHospitalHandler={this.selectHospitalHandler.bind(this)}
-                        cHospital={this.state.currentHospital} />
+                        updateHospitalHandler={this.updateHospitalHandler.bind(this)}
+                        currentHospital={this.state.currentHospital} />
                 </div>
             </div>
         )

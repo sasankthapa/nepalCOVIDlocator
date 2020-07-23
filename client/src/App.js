@@ -1,51 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 import Header from './components/Header/header'
-import Map from './components/Map/Map';
-import FormElements from './components/FormElements/FormElements';
 
-import { sendForm } from './APIs/axios.js'
 import 'leaflet/dist/leaflet.css'
 import './App.css';
 import { Switch, Route } from 'react-router-dom';
 
 import ExactLocation from './components/ExactLocation/ExactLocation'
 import Visual from './components/Visual/Visual'
+import Info from './components/InfoPage/Info'
 
 function App() {
-  const [curr,setLatLong]= useState({
-    lat:27,
-    long:85,
-    zoom:5,
-    fillingForm:false
-  })
 
-  const resetStateHandler=()=>{
-    setLatLong({
-      lat:27,
-      long:85,
-      zoom:5,
-      fillingForm:false
-    })
-  }
-
-  const submitFormRequest=(formData)=>{
-    const latlng={
-      ...curr
-    }
-    delete latlng.zoom
-    delete latlng.fillingForm
-
-    formData={
-      ...formData,
-      ...latlng
-    }
-    console.log(formData);
-
-    sendForm(formData);
-  }
-  //<h1>नेपाल COVID लोकेतोर।</h1>
-//<Visual />
   return (
 <div className="App">
       <Header />
@@ -56,7 +22,7 @@ function App() {
               <Visual/>
             </Route>
             <Route path='/info'>
-
+              <Info/>
             </Route>
             <Route path='/' exact>
               <ExactLocation />

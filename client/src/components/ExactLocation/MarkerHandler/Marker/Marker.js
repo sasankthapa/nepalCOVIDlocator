@@ -2,22 +2,8 @@ import React from 'react'
 import { Marker, Popup } from 'react-leaflet'
 import hospitalIconRAW from '../../../../assets/hospital_marker.png';
 
-import classes from './Popup.css'
+import './Popup.css'
 const L=require('leaflet')
-
-var noMessageIcon = L.icon({
-  iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png",
-  iconSize: [25, 41],
-  iconAnchor: [12.5, 41],
-  popupAnchor: [0, -41],
-});
-
-var messageIcon= L.icon({
-  iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-gold.png",
-  iconSize: [25, 41],
-  iconAnchor: [12.5, 41],
-  popupAnchor: [0, -41],
-});
 
 var hospitalIcon= L.icon({
     iconUrl: hospitalIconRAW,
@@ -27,9 +13,8 @@ var hospitalIcon= L.icon({
   });
 
 const marker = (props) => {
-  console.log(props.message);
     return  (
-        <Marker position={props.position} icon={hospitalIcon}>
+        <Marker position={props.position} icon={hospitalIcon} current={props.current} onclick={(e)=>props.updateHospitalHandler(e.target.options.current)}>
               {props.message?
               <Popup className="HospitalInfo">
                 {props.message}</Popup>

@@ -27,15 +27,16 @@ const nepalMap = (props) => {
                     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 /> : ''}
-            <NepalGeoJSON clickHandler={props.clickHandler} current={props.current} sortedBy={props.sortedBy}  showTiles={props.showTiles}/>
+            <NepalGeoJSON clickHandler={props.clickHandler} current={props.current} sortedBy={props.sortedBy} 
+                showTiles={props.showTiles} geojsonHide={props.geojsonHide} geojsonClickHandler={props.geojsonClickHandler}/>
             <ZoomControl position="bottomright" zoomInText=" + " zoomOutText=" - "/>
             <Portal position="topright">
             {districtInfoPortal}
             </Portal>
             <Portal position="bottomleft">
-                <Legend showLegend={props.showLegend} sortedBy={props.sortedBy} legendHandler={props.legendHandler}/>
+                {props.showTiles?'':<Legend showLegend={props.showLegend} sortedBy={props.sortedBy} legendHandler={props.legendHandler}/>}
             </Portal>
-            {props.showMarkers? <MarkerHandler hospital={props.showHospital} /> : ''}
+            {props.showMarkers? <MarkerHandler hospital={props.showHospital} updateHospitalHandler={props.updateHospitalHandler}/> : ''}
         </Map>
     )
 }
