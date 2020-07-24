@@ -31,5 +31,6 @@ let getData = html =>{
         
         districts.push(toAddMap);
     })
+    //Absolute path will be here.
     fs.writeFileSync('./DistrictsData.json',JSON.stringify(districts));
 }
