@@ -6,5 +6,5 @@ mongoose.connect(process.env.MONGODB_URL,{
     useUnifiedTopology: true
 },(e)=>{
     if(e){
-    console.log("Could not connect");
+    console.log("Could not connect to database");
 }})

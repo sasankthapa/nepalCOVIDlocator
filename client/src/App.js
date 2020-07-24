@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 import Header from './components/Header/header'
 
@@ -10,26 +10,32 @@ import ExactLocation from './components/ExactLocation/ExactLocation'
 import Visual from './components/Visual/Visual'
 import Info from './components/InfoPage/Info'
 
-function App() {
+import {loadDataDefaultPage,loadDataVisualPage} from './APIs/getDataImp'
 
-  return (
-<div className="App">
-      <Header />
-      <div id="wrapper">
-          <Switch>
-            <Route path='/visual'>
-              <Visual/>
-            </Route>
-            <Route path='/info'>
-              <Info/>
-            </Route>
-            <Route path='/' exact>
-              <ExactLocation />
-            </Route>
-          </Switch>
-      </div>
-    </div>
-  );
+function App() {
+  const [mainPage, updateMain]=useState(false)
+  const [visualPage, updateVisual]=useState(false);
+  loadDataDefaultPage(updateMain);
+  loadDataVisualPage(updateVisual)
+    return (
+        <div className="App">
+            <Header />
+            <div id="wrapper">
+                <Switch>
+                  <Route path='/visual'>
+                    {visualPage?<Visual/>:'LOADING'}
+                  </Route>
+                  <Route path='/info'>
+                    <Info/>
+                  </Route>
+                  <Route path='/' exact>
+                    {mainPage?<ExactLocation />:'LOADING'}
+                  </Route>
+                </Switch>
+            </div>
+          </div>
+        );    
+      
 }
 
 export default App;

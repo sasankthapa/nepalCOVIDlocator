@@ -1,3 +1,4 @@
+//THIS DOES NOT WORK ANYMORE, NO ASSET ARE PRESENT....
 import province1 from '../assets/province1.json'
 import province2 from '../assets/province2.json'
 import province3 from '../assets/province3.json'

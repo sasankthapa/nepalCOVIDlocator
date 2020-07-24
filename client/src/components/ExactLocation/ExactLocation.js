@@ -47,6 +47,7 @@ export default class ExactLocation extends Component{
                             className:classes.Map,
                             minZoom:6,
                             zoomControl:false,
+                            dragging:true,
                         }}
                         showTiles
                         showMarkers

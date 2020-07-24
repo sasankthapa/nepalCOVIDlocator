@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 
 import NepalMap from './Map/NepalMap'
 import VisualDesc from './VisualDesc/VisualDesc'
-import allDistricts,{sort, map} from '../../HelperFunctions/DistrictInfo'
+import {sort, map} from '../../HelperFunctions/DistrictInfo'
+import {districts} from "../../APIs/getDataImp";
 
 import classes from './Visual.module.css'
 
@@ -11,7 +12,7 @@ export default class Visual extends Component {
     state={
         position:[28.468664402097676,84.16637133707813],
         zoom:window.innerWidth>900?7:6,
-        districtsArray:[...allDistricts],
+        districtsArray:[...districts],
         sortedBy:'total',
         order:'desc',
         selected:null,
@@ -26,9 +27,9 @@ export default class Visual extends Component {
         }else{
             order=order==='asc'?'desc':'asc';
         }
-        sort(sortBy, order)
+        sort(districts,sortBy, order)
 
-        this.setState({districtsArray:[...allDistricts],order,sortedBy:sortBy});
+        this.setState({districtsArray:[...districts],order,sortedBy:sortBy});
     }
 
     districtClickHandler(name){

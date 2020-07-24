@@ -3,7 +3,8 @@ import { GeoJSON } from 'react-leaflet'
 
 import Nepal from '../../../../assets/nepalgeojson.json'
 
-import Districts,{ map } from '../../../../HelperFunctions/DistrictInfo'
+import { map } from '../../../../HelperFunctions/DistrictInfo'
+import {districts} from "../../../../APIs/getDataImp";
 
 const NepalGeoJSON = (props) => {
     function basedOnSmallData(d){
@@ -47,7 +48,6 @@ const NepalGeoJSON = (props) => {
 
     const exactMapStyle=(curr)=>{
         const province=curr.properties.PROVINCE
-        console.log(props.geojsonHide);
         return {
             weight:1,
             opacity:0.5,
@@ -64,8 +64,8 @@ const NepalGeoJSON = (props) => {
         }
         var districtName=curr.properties.DISTRICT.toLowerCase()
         const province=curr.properties.PROVINCE
-        const districtData=Districts[map[districtName]];
-        if(!districtData) console.log(districtName,curr,districtData)
+        const districtData=districts[map[districtName.trim()]];
+        if(!districtData) console.log(districtName,curr,districtData,districts)
         var selectedStyles={}
         if(props.current && props.current.name===districtName){
             selectedStyles={
