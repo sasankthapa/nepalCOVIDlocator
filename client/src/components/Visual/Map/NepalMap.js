@@ -9,9 +9,8 @@ import MarkerHandler from '../../ExactLocation/MarkerHandler/MarkerHandler';
 
 const nepalMap = (props) => {
     const districtInfoPortal=props.current?(
-        <SelectedDistrict current={props.current} sortedBy={props.sortedBy} closeHandler={props.clickHandler}/>):'';
-    
-    console.log(props.showMarkers)
+        <SelectedDistrict current={props.current} sortedBy={props.sortedBy} closeHandler={props.clickHandler}/>):
+        props.geojsonHide?<div style={{fontSize:'20px',backgroundColor:'white',borderRadius:'10px',margin:'0'}}><h3>--{props.geojsonHide}--</h3></div>:'';
     return (
         <Map center={props.position} zoom={props.zoom} 
             {...props.settings}

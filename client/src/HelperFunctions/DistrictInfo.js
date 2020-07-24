@@ -1,9 +1,3 @@
-// const fs=require('fs');
-
-import allDistricts from "../assets/DistrictsData.json";
-
-// const allDistricts = JSON.parse(fs.readFileSync(jsonPath));
-
 const propComparater = (sortBy, order) => {
     return function(a,b){
         var fromA,fromB
@@ -19,18 +13,15 @@ const propComparater = (sortBy, order) => {
     }
 }
 
-export const sort = (sortBy,order) => {
-    allDistricts.sort(propComparater(sortBy,order));
-    fillMap()
+export const sort = (array,sortBy,order) => {
+    array.sort(propComparater(sortBy,order));
+    fillMap(array)
 }
 
 export const map={}
 
-function fillMap(){
-    allDistricts.forEach((element,index)=>{
+export function fillMap(array){
+    array.forEach((element,index)=>{
         map[element.name]=index
     })
 }
-
-fillMap()
-export default allDistricts
