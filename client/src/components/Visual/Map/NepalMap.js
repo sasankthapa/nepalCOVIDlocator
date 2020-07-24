@@ -8,18 +8,12 @@ import NepalGeoJSON from './GeoJSON/NepalGeoJSON'
 import MarkerHandler from '../../ExactLocation/MarkerHandler/MarkerHandler';
 
 const nepalMap = (props) => {
-    const DEVondragend= (e) => {
-        console.log(e.target.getCenter())
-        console.log(e.target._zoom);
-    }
-
     const districtInfoPortal=props.current?(
         <SelectedDistrict current={props.current} sortedBy={props.sortedBy} closeHandler={props.clickHandler}/>):'';
     
     console.log(props.showMarkers)
     return (
         <Map center={props.position} zoom={props.zoom} 
-            ondragend={DEVondragend}
             {...props.settings}
             {...props.inlineS}
             >

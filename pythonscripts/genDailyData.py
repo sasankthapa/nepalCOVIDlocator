@@ -15,10 +15,10 @@ for line in f.readlines():
     if line[0]=='Date':
         continue
     curr['date']=line[0]
-    curr['totaltests']=line[1]
-    curr['recovered']=line[2]
-    curr['deaths']=line[3]
-    curr['confirmed']=line[4]
+    curr['totaltests']=int(line[1])
+    curr['recovered']=int(line[2])
+    curr['deaths']=int(line[3])
+    curr['confirmed']=int(line[4])
     outputArray+=[curr]
 
 with open(outputFile,'w+') as f:

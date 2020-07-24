@@ -12,7 +12,12 @@ export default class ExactLocation extends Component{
         zoom:window.innerWidth>900?7:6,
         currentHospital:null,
         showHospital:false,
-        geojsonHide:null
+        geojsonHide:null,
+        enableGraphs:false
+    }
+
+    enableGraphsHandler=(value)=>{
+        this.setState({enableGraphs:value})
     }
 
     updateHospitalHandler(hospital){
@@ -58,7 +63,9 @@ export default class ExactLocation extends Component{
                         }}
                         selectHospitalHandler={this.selectHospitalHandler.bind(this)}
                         updateHospitalHandler={this.updateHospitalHandler.bind(this)}
-                        currentHospital={this.state.currentHospital} />
+                        enableGraphsHandler={this.enableGraphsHandler.bind(this)}
+                        currentHospital={this.state.currentHospital} 
+                        graphs={this.state.enableGraphs}/>
                 </div>
             </div>
         )

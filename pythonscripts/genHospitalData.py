@@ -16,12 +16,13 @@ for line in f.readlines():
     if line[0]=='Name':
         continue
     curr['Name']=line[0]
-    curr['lat']=line[1].split('/')[0]
-    curr['long']=line[1].split('/')[1]
-    curr['totaltests']=line[2]
-    if line[3]!='':
+    curr['Location']=line[1]
+    curr['lat']=line[2].split('/')[0]
+    curr['long']=line[2].split('/')[1]
+    curr['totaltests']=line[3]
+    if line[4]!='':
         curr['extra']=True
-    curr['percent']=line[4]
+    curr['percent']=line[5]
     outputArray += [curr]
 
 with open(outputFile,'w+') as f:
