@@ -54,3 +54,35 @@
 .InfoContainer p{
     margin:5px 20px;
 }
+
+.NepalContainer{
+    display:flex;
+    flex-wrap: wrap;
+    width:100%;
+    background-color: white;
+    border-radius: 20px;
+    padding:10px 0
+}
+
+.NepalContainer * {
+    padding:0;
+    margin:0;
+}
+
+.NepalContainer > div{
+    padding:10px;
+    box-sizing: border-box;
+    width:auto;
+    margin:auto;
+    background-color: #DEC5E3;
+    color:black;
+    border-radius: 2vh;
+    margin: 10px 5px;
+    margin-left: 20px;
+}
+
+.NepalContainer > div p{
+    font-size: small;
+    font-weight: bold;
+    color:#5e6572
+}

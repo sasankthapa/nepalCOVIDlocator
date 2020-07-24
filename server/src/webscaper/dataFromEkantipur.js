@@ -32,5 +32,5 @@ let getData = html =>{
         districts.push(toAddMap);
     })
     //Absolute path will be here.
-    fs.writeFileSync('/home/sasank/WebsiteData/nepalCOVID/DistrictsData.json',JSON.stringify(districts));
+    fs.writeFileSync('/home/sasank/Documents/shellscripts/data/DistrictsData.json',JSON.stringify(districts));
 }

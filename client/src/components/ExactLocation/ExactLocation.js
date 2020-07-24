@@ -13,7 +13,8 @@ export default class ExactLocation extends Component{
         currentHospital:null,
         showHospital:false,
         geojsonHide:null,
-        enableGraphs:false
+        enableGraphs:false,
+        nepal:false
     }
 
     enableGraphsHandler=(value)=>{
@@ -35,6 +36,10 @@ export default class ExactLocation extends Component{
         if(this.state.geojsonHide && this.state.geojsonHide===name) 
             return this.setState({geojsonHide:null})
         this.setState({geojsonHide:name})
+    }
+
+    enableNepalHandler=(value)=>{
+        this.setState({nepal:value})
     }
 
     render(){
@@ -65,8 +70,10 @@ export default class ExactLocation extends Component{
                         selectHospitalHandler={this.selectHospitalHandler.bind(this)}
                         updateHospitalHandler={this.updateHospitalHandler.bind(this)}
                         enableGraphsHandler={this.enableGraphsHandler.bind(this)}
+                        enableNepalHandler={this.enableNepalHandler.bind(this)}
                         currentHospital={this.state.currentHospital} 
-                        graphs={this.state.enableGraphs}/>
+                        graphs={this.state.enableGraphs}
+                        nepal={this.state.nepal}/>
                 </div>
             </div>
         )

@@ -7,10 +7,13 @@ const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:300
 export var daily=[]
 export var districts=[]
 export var hospitals=[]
+export var npData={}
+export var lastUpdated
 
 export const loadDataDefaultPage = async(done) => {
     daily=(await axios.get(API_URL+'/daily')).data
     hospitals=(await axios.get(API_URL+'/hospitals')).data
+    npData=(await axios.get(API_URL+'/nepal')).data
     done(true);
 }
 
@@ -19,3 +22,8 @@ export const loadDataVisualPage = async(done) => {
     sort(districts,)
     done(true);
 }
+
+axios.get(API_URL+'/lastupdate').then((res)=>{
+    lastUpdated=res.data
+}
+)

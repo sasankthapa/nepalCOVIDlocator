@@ -1,7 +1,7 @@
 import json
 
-fileToImport = './csvs/HospitalData.csv'
-outputFile = '/home/sasank/WebsiteData/nepalCOVID/hospitals.json'
+fileToImport = '/home/sasank/BiggerProjects/NepalCOVIDLocator/datascripts/csvs/HospitalData.csv'
+outputFile = '/home/sasank/Documents/shellscripts/data/hospitals.json'
 #set output and input file to absolute location in the webserver and take the data from that absolute location in the react app
 
 outputArray=[]
