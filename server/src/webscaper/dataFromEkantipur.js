@@ -4,7 +4,7 @@ const cheerio=require('cheerio')
 
 const nightmare=Nightmare();
 const url="https://kathmandupost.com/covid19"
-
+console.log('here1')
 nightmare
     .goto(url)
     .wait('table#DataTables_Table_0')
@@ -32,5 +32,5 @@ let getData = html =>{
         districts.push(toAddMap);
     })
     //Absolute path will be here.
-    fs.writeFileSync('./DistrictsData.json',JSON.stringify(districts));
+    fs.writeFileSync('/home/sasank/WebsiteData/nepalCOVID/DistrictsData.json',JSON.stringify(districts));
 }
