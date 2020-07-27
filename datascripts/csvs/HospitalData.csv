@@ -1,29 +1,29 @@
 Name,Location,lat/long,Total Test,Extra,Percentage
-National Public Health Laboratory,Teku,27.695593/85.3067614,81611,,24.91%
-B.P. Koirala Institute of Health Sciences,Dharan,26.80956/87.26759,12945,,3.95%
-Koshi Hospital,Biratnagar,26.4590497/87.2851884,15237,,4.65%
-State Public Health Laboratory,Biratnagar,26.4678475/87.2766315,13121,May not be correct,4.01%
-Gajendra Narayan Singh Hospital,Saptari,26.5359504/86.7499481,2997,,0.91%
-Janakpur Zonal Hospital,Janakpur,26.7298786/85.9115304,5361,Maybe not exact,1.64%
-Narayani Hospital,Birgunj,27.005742/84.8735593,10499,,3.20%
-Shukraraj Tropical and Infectious Disease Hospital,Teku,27.6954445/85.3069413,11092,,3.39%
-Bharatpur Hospital COVID-19 Diagnostic Laboratory,Chitwan,27.6818787/84.434377,10476,,3.20%
-Vector Borne Disease Research and Training Centre,Hetauda,27.4266827/85.0241767,11396,,3.48%
-Kathmandu University Teaching Hospital,Dhulikhel,27.6167702/85.5479505,8686,,2.65%
-Patan Hospital,Lalitpur,27.668302/85.3205683,7478,,2.28%
-Bir Hospital,Kathmandu,27.7048249/85.3136514,6957,,2.12%
-Tribhuvan University Teaching Hospital,TU,27.7359917/85.3302595,6869,,2.10%
-Nepal Police Hospital Laboratory,Kathmandu,27.7311856/85.3233487,276,,0.08%
-Star Hospital Laboratory,Sanepa,27.6816372/85.3028046,594,,0.18%
-Pokhara Academy of Health Science,Pokhara,28.2125539/83.9979662,12517,,3.82%
-Provincial Public Health Laboratory- Pokhara,Pokhara,28.2123973/84.0004241,8561,,2.61%
-National Path Lab- Rupandehi ,Rupandehi,27.6977615/83.4637517,11522,,3.52%
-Bheri Hospital,Banke,28.052908/81.6176275,18271,,5.58%
-Lumbini Provincial Hospital,Lumbini,27.6971129/83.4633134,627,,0.19%
-Rapti Academy of Health Sciences,Dang,28.0587625/82.4861053,15003,,4.58%
-Surkhet Hospital,Surkhet,28.5960832/81.6030746,17651,,5.39%
-Karnali Academy of Health Sciences,Jumla,29.2829257/82.1830896,18742,,5.72%
-COVID-19 Testing Laboratory- Dailekh,Dailekh,28.899069/81.3767203,1593,Just district location not exact,0.49%
-Chaurjahari Municipality PCR Laboratory,Rukun(East),28.6368786/82.1878144,959,couldn't find laboratory,0.29%
-Dadeldhura Hospital Laboratory,Dadeldhura,29.3048913/80.5875312,1297,,0.40%
-Seti Zonal Hospital,Dhangadi,28.710972/80.57763,15276,,4.66%
+National Public Health Laboratory,Teku,27.695593/85.3067614,82330,,24.27%
+B.P. Koirala Institute of Health Sciences,Dharan,26.80956/87.26759,13645,,4.02%
+Koshi Hospital,Biratnagar,26.4590497/87.2851884,15964,,4.71%
+State Public Health Laboratory,Biratnagar,26.4678475/87.2766315,13619,May not be correct,4.02%
+Gajendra Narayan Singh Hospital,Saptari,26.5359504/86.7499481,3327,,0.98%
+Janakpur Zonal Hospital,Janakpur,26.7298786/85.9115304,5545,Maybe not exact,1.63%
+Narayani Hospital,Birgunj,27.005742/84.8735593,10979,,3.24%
+Shukraraj Tropical and Infectious Disease Hospital,Teku,27.6954445/85.3069413,11336,,3.34%
+Bharatpur Hospital COVID-19 Diagnostic Laboratory,Chitwan,27.6818787/84.434377,10932,,3.22%
+Vector Borne Disease Research and Training Centre,Hetauda,27.4266827/85.0241767,12459,,3.67%
+Kathmandu University Teaching Hospital,Dhulikhel,27.6167702/85.5479505,8902,,2.62%
+Patan Hospital,Lalitpur,27.668302/85.3205683,7652,,2.26%
+Bir Hospital,Kathmandu,27.7048249/85.3136514,7363,,2.17%
+Tribhuvan University Teaching Hospital,TU,27.7359917/85.3302595,7117,,2.10%
+Nepal Police Hospital Laboratory,Kathmandu,27.7311856/85.3233487,391,,0.12%
+Star Hospital Laboratory,Sanepa,27.6816372/85.3028046,895,,0.26%
+Pokhara Academy of Health Science,Pokhara,28.2125539/83.9979662,12980,,3.83%
+Provincial Public Health Laboratory- Pokhara,Pokhara,28.2123973/84.0004241,8950,,2.64%
+National Path Lab- Rupandehi ,Rupandehi,27.6977615/83.4637517,12223,,3.60%
+Bheri Hospital,Banke,28.052908/81.6176275,19000,,5.60%
+Lumbini Provincial Hospital,Lumbini,27.6971129/83.4633134,809,,0.24%
+Rapti Academy of Health Sciences,Dang,28.0587625/82.4861053,15003,,4.42%
+Surkhet Hospital,Surkhet,28.5960832/81.6030746,18321,,5.40%
+Karnali Academy of Health Sciences,Jumla,29.2829257/82.1830896,18766,,5.53%
+COVID-19 Testing Laboratory- Dailekh,Dailekh,28.899069/81.3767203,1707,Just district location not exact,0.50%
+Chaurjahari Municipality PCR Laboratory,Rukun(East),28.6368786/82.1878144,1088,couldn't find laboratory,0.32%
+Dadeldhura Hospital Laboratory,Dadeldhura,29.3048913/80.5875312,1581,,0.47%
+Seti Zonal Hospital,Dhangadi,28.710972/80.57763,16273,,4.80%

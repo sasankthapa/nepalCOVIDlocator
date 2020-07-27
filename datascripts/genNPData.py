@@ -5,7 +5,9 @@ outputFile = '/home/sasank/Documents/shellscripts/data/npData.json'
 
 outputObject={}
 f=open(fileToImport,'r')
+
 for line in f.readlines():
+    print(line)
     line=line.strip()
     if line=='':
         continue
@@ -15,5 +17,10 @@ for line in f.readlines():
         continue
     outputObject[line[0]]=int(line[1])
 
+print(outputObject)
+
 with open(outputFile,'w+') as f:
+    print(outputFile)
+    print(fileToImport)
+    print(outputObject.keys())
     f.write(json.dumps(outputObject))

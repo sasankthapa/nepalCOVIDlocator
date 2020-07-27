@@ -61,7 +61,8 @@
     width:100%;
     background-color: white;
     border-radius: 20px;
-    padding:10px 0
+    padding:10px 0;
+    animation: enter 0.3s ease-in;
 }
 
 .NepalContainer * {

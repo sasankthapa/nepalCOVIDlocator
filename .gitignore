@@ -3,3 +3,5 @@
 client/build
 /server/ecosystem.config.js
 /server/Data/
+/datascripts/csvs/
+/datascripts/outputJsons/

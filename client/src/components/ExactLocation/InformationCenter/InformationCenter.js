@@ -6,6 +6,7 @@ import classes from './InformationCenter.module.css'
 import {npData} from '../../../APIs/getDataImp'
 
 const InformationCenter = (props) => {
+    var sortedArray=['Total Positive Cases', 'Recovered', 'Deaths', 'People in Quarentine', 'Confirmed Cases in Isolation' , 'PCR-Test', 'PCR-Test/million', 'Recovery Rate', 'Confirmed Cases in Isolation'];
     return (
     <div {...props.settings}>
         <div className={classes.container}>
@@ -41,8 +42,8 @@ const InformationCenter = (props) => {
         :''}
         {props.nepal?
             <div className={classes.NepalContainer}>
-                {Object.keys(npData).map((element)=>{
-                    return(<div key={element}>
+                {sortedArray.map((element)=>{
+                    return (<div key={element}>
                         <h3>{npData[element]}</h3>
                         <p>{element}</p>
                     </div>)
