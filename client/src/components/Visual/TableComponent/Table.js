@@ -29,7 +29,7 @@ const table = (props) => {
         default:
             console.log('ERROR THIS SHOULD NOT HAPPEN')
     }
-
+  
     return (
         <table className={classes.Table}>
             <colgroup>
@@ -40,6 +40,13 @@ const table = (props) => {
               <col span="1" className={colReadmitted}/>
             </colgroup>
             <thead>
+                <tr className={props.current&&props.current.name==="Nepal"?classes.selected:null} onClick={()=>props.clickHandler("Nepal")}>
+                        <th>Nepal</th>
+                        <th >{props.nepal['total']}</th>
+                        <th >{props.nepal['deaths']}</th>
+                        <th >{props.nepal['recovered']}</th>
+                        <th >{props.nepal['readmitted']}</th>
+                </tr>
                 <tr>
                         <th onClick={()=>handleSorting('name')}>Name</th>
                         <th onClick={()=>handleSorting('total')}>Total</th>

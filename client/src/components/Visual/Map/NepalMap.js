@@ -10,7 +10,7 @@ import MarkerHandler from '../../ExactLocation/MarkerHandler/MarkerHandler';
 const nepalMap = (props) => {
     const districtInfoPortal=props.current?(
         <SelectedDistrict current={props.current} sortedBy={props.sortedBy} closeHandler={props.clickHandler}/>):
-        props.geojsonHide?<div style={{fontSize:'20px',backgroundColor:'white',borderRadius:'10px',margin:'0'}}><h3>--{props.geojsonHide}--</h3></div>:'';
+        props.geojsonHide?<div style={{fontSize:'20px',backgroundColor:'white',borderRadius:'10px',margin:'0'}}><h3 style={{margin:'0'}}>--{props.geojsonHide}--</h3></div>:'';
     return (
         <Map center={props.position} zoom={props.zoom} 
             {...props.settings}
@@ -27,7 +27,7 @@ const nepalMap = (props) => {
             {districtInfoPortal}
             </Portal>
             <Portal position="bottomleft">
-                {props.showTiles?'':<Legend showLegend={props.showLegend} sortedBy={props.sortedBy} legendHandler={props.legendHandler}/>}
+                {props.showTiles?<button onClick={(e)=>props.biggermapHandler()}>+</button>:<Legend showLegend={props.showLegend} sortedBy={props.sortedBy} legendHandler={props.legendHandler}/>}
             </Portal>
             {props.showMarkers? <MarkerHandler hospital={props.showHospital} updateHospitalHandler={props.updateHospitalHandler}/> : ''}
         </Map>

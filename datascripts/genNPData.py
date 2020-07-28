@@ -7,20 +7,16 @@ outputObject={}
 f=open(fileToImport,'r')
 
 for line in f.readlines():
-    print(line)
     line=line.strip()
     if line=='':
         continue
     line=line.split(',')
     if '%' in line[1]:
         outputObject[line[0]]=line[1]
+        outputObject[line[0]+'prev']=line[2]
         continue
     outputObject[line[0]]=int(line[1])
-
-print(outputObject)
+    outputObject[line[0]+'prev']=int(line[2])
 
 with open(outputFile,'w+') as f:
-    print(outputFile)
-    print(fileToImport)
-    print(outputObject.keys())
     f.write(json.dumps(outputObject))

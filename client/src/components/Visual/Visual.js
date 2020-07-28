@@ -4,6 +4,7 @@ import NepalMap from './Map/NepalMap'
 import VisualDesc from './VisualDesc/VisualDesc'
 import {sort, map} from '../../HelperFunctions/DistrictInfo'
 import {districts} from "../../APIs/getDataImp";
+import {nepal} from '../../HelperFunctions/DistrictInfo'
 
 import classes from './Visual.module.css'
 
@@ -15,7 +16,7 @@ export default class Visual extends Component {
         districtsArray:[...districts],
         sortedBy:'total',
         order:'desc',
-        selected:null,
+        selected:nepal,
         showLegend:false,
     }
 
@@ -33,6 +34,9 @@ export default class Visual extends Component {
     }
 
     districtClickHandler(name){
+        if(name==="Nepal"){
+            return this.setState({selected:nepal})
+        }
         if(this.state.selected && name===this.state.selected.name){
             return this.setState({selected:null})
         }
@@ -67,6 +71,7 @@ export default class Visual extends Component {
                 </div>
                 <div className={classes.flexContainer}>
                     <VisualDesc 
+                        nepal={nepal}
                         settings={{className:classes.VisualDesc}} 
                         districtArray={this.state.districtsArray}
                         current={this.state.selected}

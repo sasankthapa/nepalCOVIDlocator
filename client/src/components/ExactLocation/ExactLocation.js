@@ -14,7 +14,8 @@ export default class ExactLocation extends Component{
         showHospital:false,
         geojsonHide:null,
         enableGraphs:false,
-        nepal:false
+        nepal:true,
+        biggermap:false
     }
 
     enableGraphsHandler=(value)=>{
@@ -42,10 +43,19 @@ export default class ExactLocation extends Component{
         this.setState({nepal:value})
     }
 
+    biggermapHandler=()=>{
+        const prev=this.state.biggermap
+        this.setState({biggermap:!prev})
+    }
+
     render(){
+        var flexBoxClasses=classes.flexContainer
+        if(this.state.biggermap){
+            flexBoxClasses=`${classes.flexContainer} ${classes.BiggerMap}`
+        }
         return(
             <div className={classes.container}>
-                <div className={classes.flexContainer}>
+                <div className={flexBoxClasses}>
                     <NepalMap position={this.state.position}
                         zoom={this.state.zoom}
                         settings={{
@@ -60,9 +70,10 @@ export default class ExactLocation extends Component{
                         showHospital={this.state.showHospital}
                         geojsonHide={this.state.geojsonHide}
                         geojsonClickHandler={this.geojsonClickHandler.bind(this)}
+                        biggermapHandler={this.biggermapHandler.bind(this)}
                     />
                 </div>
-                <div className={classes.flexContainer}>
+                <div className={flexBoxClasses}>
                     <InformationCenter 
                         settings={{
                             className:classes.InfoContainer

@@ -6,6 +6,7 @@
     border-radius: 20px;
     animation: enter 0.3s ease-in;
     margin: 10px 0;
+    position: relative;
 }
 
 @keyframes enter{

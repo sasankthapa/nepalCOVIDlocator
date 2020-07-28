@@ -6,7 +6,7 @@ import classes from './InformationCenter.module.css'
 import {npData} from '../../../APIs/getDataImp'
 
 const InformationCenter = (props) => {
-    var sortedArray=['Total Positive Cases', 'Recovered', 'Deaths', 'People in Quarentine', 'Confirmed Cases in Isolation' , 'PCR-Test', 'PCR-Test/million', 'Recovery Rate', 'Confirmed Cases in Isolation'];
+    var sortedArray=['Total Positive Cases', 'Recovered', 'Deaths', 'People in Quarentine', 'Confirmed Cases in Isolation' , 'PCR-Test', 'PCR-Test/million', 'Recovery Rate'];
     return (
     <div {...props.settings}>
         <div className={classes.container}>
@@ -21,7 +21,7 @@ const InformationCenter = (props) => {
                 </label>&nbsp;&nbsp;&nbsp;&nbsp;
                 <label>
                     Nepal
-                    <input value="off" type="checkbox" onChange={(e)=>props.enableNepalHandler(e.target.checked)}/>
+                    <input value="off" type="checkbox" onChange={(e)=>props.enableNepalHandler(e.target.checked)} checked={props.nepal}/>
                 </label>
                 
             </div>
@@ -42,9 +42,9 @@ const InformationCenter = (props) => {
         :''}
         {props.nepal?
             <div className={classes.NepalContainer}>
-                {sortedArray.map((element)=>{
-                    return (<div key={element}>
-                        <h3>{npData[element]}</h3>
+                {sortedArray.map((element,index)=>{
+                    return (<div key={String(index)+'weird fix'}>
+                        <h3>{npData[element]}<small>{npData[element]-npData[element+'prev']}</small></h3>
                         <p>{element}</p>
                     </div>)
                 })}

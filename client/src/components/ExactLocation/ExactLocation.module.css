@@ -16,7 +16,7 @@
     display: block;
 }
 
-.container > .flexContainer:nth-child(2) {
+.container > .flexContainer:nth-of-type(2) {
     width: 40%;
 }
 
@@ -47,10 +47,20 @@
         width: 100%;
         padding: 5px;
         display: block;
+        transition: height 0.5s ease;
     }
     
-    .container > .flexContainer:nth-child(2) {
+    .container > .flexContainer:nth-of-type(2) {
         height: 60%;
         width:100%;
+    }
+
+
+    .container > .flexContainer.BiggerMap{
+        height: 75%;
+    }
+
+    .container > .flexContainer.BiggerMap:nth-child(2){
+        height:25%;
     }
 }

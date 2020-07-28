@@ -1,5 +1,5 @@
 import React, {useState} from 'react'
-import { VictoryChart, VictoryAxis, VictoryBar, VictoryZoomContainer } from 'victory'
+import { VictoryChart, VictoryAxis, VictoryLine, VictoryZoomContainer } from 'victory'
 
 import Aux from '../../hoc/Aux'
 
@@ -28,9 +28,9 @@ const Graph = (props) => {
       }}/>}>
                 <VictoryAxis style={ {tickLabels: { fontSize:11,angle: -90, padding:20 }}}/>
                 <VictoryAxis dependentAxis/> 
-                <VictoryBar 
+                <VictoryLine 
                 // animate={{ duration: 1000 }} 
-                style={{ data: { fill: "tomato" }, labels: {padding:5}}}
+                style={{ labels: {padding:10}}}
                 data={ daily.slice(daily.length-dataLength,daily.length) } 
                 labels={({ datum }) => `${datum[current]}`}
                 x="date" 
