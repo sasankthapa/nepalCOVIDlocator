@@ -15,7 +15,8 @@ export default class ExactLocation extends Component{
         geojsonHide:null,
         enableGraphs:false,
         nepal:true,
-        biggermap:false
+        biggermap:false,
+        updatekey:'1'
     }
 
     enableGraphsHandler=(value)=>{
@@ -46,6 +47,7 @@ export default class ExactLocation extends Component{
     biggermapHandler=()=>{
         const prev=this.state.biggermap
         this.setState({biggermap:!prev})
+        setTimeout(()=>this.setState({updatekey:this.state.updatekey==='1'?'2':'1'}),1000)
     }
 
     render(){
@@ -56,7 +58,8 @@ export default class ExactLocation extends Component{
         return(
             <div className={classes.container}>
                 <div className={flexBoxClasses}>
-                    <NepalMap position={this.state.position}
+                    <NepalMap updateKey={this.state.updatekey}
+                        position={this.state.position}
                         zoom={this.state.zoom}
                         settings={{
                             className:classes.Map,

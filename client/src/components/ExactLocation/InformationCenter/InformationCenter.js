@@ -4,7 +4,6 @@ import Graphs from '../../Graphs/Graph'
 import classes from './InformationCenter.module.css'
 
 import {npData} from '../../../APIs/getDataImp'
-import { sort } from '../../../HelperFunctions/DistrictInfo'
 
 const InformationCenter = (props) => {
     var sortedArray=['Total Positive Cases', 'Recovered', 'Deaths', 'People in Quarentine', 'Confirmed Cases in Isolation' , 'PCR-Test', 'PCR-Test/million', 'Recovery Rate'];
@@ -12,7 +11,6 @@ const InformationCenter = (props) => {
     sortedArray.forEach((ele)=>{
         var data
         if(ele==='Recovery Rate'){
-            console.log(npData[ele+'prev'])
             data=(parseFloat(npData[ele])-parseFloat(npData[ele+'prev'])).toFixed(1)
         }else{
             data=npData[ele]-npData[ele+'prev']
@@ -20,7 +18,6 @@ const InformationCenter = (props) => {
         previousMap[ele]=data<0?data:'+'+data
     }
     )
-    console.log(previousMap)
 
     return (
     <div {...props.settings}>

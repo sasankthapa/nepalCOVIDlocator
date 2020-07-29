@@ -99,7 +99,7 @@ const NepalGeoJSON = (props) => {
     }
 
     return (Nepal.features.map((element,index)=>{
-        return <GeoJSON key={index} data={element} style={setStyle} onEachFeature={onEachFeatureHandler}/>
+        return <GeoJSON key={String(index)+props.updateKey} data={element} style={setStyle} onEachFeature={onEachFeatureHandler}/>
     }));
 }
 

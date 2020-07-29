@@ -15,12 +15,13 @@ const nepalMap = (props) => {
         <Map center={props.position} zoom={props.zoom} 
             {...props.settings}
             {...props.inlineS}
+            key={props.updateKey}
             >
             {props.showTiles?<TileLayer
                     attribution='&amp;copy <a href="http://osm.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 /> : ''}
-            <NepalGeoJSON clickHandler={props.clickHandler} current={props.current} sortedBy={props.sortedBy} 
+            <NepalGeoJSON updateKey={props.updateKey} clickHandler={props.clickHandler} current={props.current} sortedBy={props.sortedBy} 
                 showTiles={props.showTiles} geojsonHide={props.geojsonHide} geojsonClickHandler={props.geojsonClickHandler}/>
             <ZoomControl position="bottomright" zoomInText=" + " zoomOutText=" - "/>
             <Portal position="topright">
