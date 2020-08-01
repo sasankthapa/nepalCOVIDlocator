@@ -1,9 +1,11 @@
 const express=require('express')
-// require('./mongoose/mongoose'); //database is not used currently
+require('./mongoose/mongoose');
 
 const PORT=process.env.PORT||3000
 
 const assetRouter=require('./routers/assetRouter')
+const databaseRouter=require('./routers/databaseRouter')
+
 const cors=require('cors')
 const app=express()
 
@@ -15,5 +17,6 @@ app.get('/api/',(req,res)=>{
 });
 
 app.use(assetRouter);
+app.use(databaseRouter);
 
 app.listen(PORT,()=>{console.log(`Served on ${PORT}`)})

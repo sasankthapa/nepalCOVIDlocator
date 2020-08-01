@@ -8,15 +8,19 @@ import { Switch, Route } from 'react-router-dom';
 
 import ExactLocation from './components/ExactLocation/ExactLocation'
 import Visual from './components/Visual/Visual'
-import Info from './components/InfoPage/Info'
+import News from './components/NewsPage/News'
 
-import {loadDataDefaultPage,loadDataVisualPage} from './APIs/getDataImp'
+import {loadDataDefaultPage,loadDataVisualPage,loadDataNewsPage} from './APIs/getDataImp'
 
 function App() {
   const [mainPage, updateMain]=useState(false)
   const [visualPage, updateVisual]=useState(false);
+  const [newsPage, updateNews]=useState(false);
+
   loadDataDefaultPage(updateMain);
-  loadDataVisualPage(updateVisual)
+  loadDataVisualPage(updateVisual);
+  loadDataNewsPage(updateNews);
+
     return (
         <div className="App">
             <Header />
@@ -25,8 +29,8 @@ function App() {
                   <Route path='/visual'>
                     {visualPage?<Visual/>:'LOADING'}
                   </Route>
-                  <Route path='/info'>
-                    <Info/>
+                  <Route path='/news'>
+                    {newsPage?<News/>:'LOADING'}
                   </Route>
                   <Route path='/' exact>
                     {mainPage?<ExactLocation />:'LOADING'}

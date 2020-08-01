@@ -9,6 +9,7 @@ export var districts=[]
 export var hospitals=[]
 export var npData={}
 export var lastUpdated
+export var infoMessage
 
 export const loadDataDefaultPage = async(done) => {
     daily=(await axios.get(API_URL+'/daily')).data
@@ -23,7 +24,12 @@ export const loadDataVisualPage = async(done) => {
     done(true);
 }
 
-axios.get(API_URL+'/lastupdate').then((res)=>{
-    lastUpdated=res.data
+export const loadDataNewsPage = async(done) => {
+    await axios.get(API_URL+'/info/lastupdate').then((res)=>{
+        lastUpdated=res.data
+    })
+    await axios.get(API_URL+'/info/message').then((res)=>{
+        infoMessage=res.data
+    })
+    done(true)
 }
-)

@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:3001' : 'https://nepalcovidlocator.com/api';
+const API_URL = window.location.hostname === 'localhost' ? 'http://localhost:3001/api' : 'https://nepalcovidlocator.com/api';
 
 export async function getEntries(){
     try{
@@ -23,4 +23,9 @@ export function sendForm(formData){
           .catch((e)=>{
               alert('Error please check phone number or connection to database');
           })
+}
+
+export async function getNews(done){
+    const news=await axios.get(API_URL+'/allNews');
+    done(news.data);
 }
