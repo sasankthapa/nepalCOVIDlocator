@@ -2,7 +2,8 @@ const mongoose=require('mongoose')
 
 const newsSchema=new mongoose.Schema({
     date:{
-        type:Date,
+        type:String,
+        trim:true
     },
     title:{
         type:String,
