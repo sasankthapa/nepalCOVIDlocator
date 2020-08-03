@@ -6,7 +6,7 @@ import classes from './InformationCenter.module.css'
 import {npData} from '../../../APIs/getDataImp'
 
 const InformationCenter = (props) => {
-    var sortedArray=['Total Positive Cases', 'Recovered', 'Deaths', 'People in Quarentine', 'Confirmed Cases in Isolation' , 'PCR-Test', 'PCR-Test/million', 'Recovery Rate'];
+    var sortedArray=['Active Cases','Total Positive Cases', 'Recovered', 'Deaths', 'People in Quarentine', 'Confirmed Cases in Isolation' , 'PCR-Test', 'PCR-Test/million', 'Recovery Rate'];
     var previousMap={}
     sortedArray.forEach((ele)=>{
         var data
