@@ -19,4 +19,16 @@ getData=(html)=>{
     const news=[];
     const $=cheerio.load(html);
     
+    $('div.col-xs-12').each((index,element)=>{
+        const currentNews={}
+        
+        info = $(element).find('.single-category-text')
+
+        currentNews['title']=info.find('h1').find('a').html();
+        currentNews['link']=info.find('h1').find('a').attr('href');
+
+        console.log(currentNews);
+        news.push(currentNews);
+    })
+    console.log(news.length)
 }

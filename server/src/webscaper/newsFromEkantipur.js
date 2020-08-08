@@ -18,5 +18,14 @@ getData=(html)=>{
     console.log('here')
     const news=[];
     const $=cheerio.load(html);
-    
-}
+    $('.normal').each((index,element)=>{
+        const currentNews={} 
+         
+        currentNews['title']=$(element).find('a').html();
+        currentNews['link']=$(element).find('a').attr('href')
+
+        console.log(currentNews)
+        news.push(currentNews)
+    })
+    console.log(news.length);
+}   
