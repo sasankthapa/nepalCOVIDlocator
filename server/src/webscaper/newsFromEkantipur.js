@@ -3,16 +3,21 @@ const cheerio=require('cheerio');
 
 const nightmare=Nightmare();
 const url='https://ekantipur.com/news'
-console.log('Trying to scrape from ktm post');
-nightmare.goto(url)
-    .wait('.col-xs-10.col-sm-10.col-md-10')
-    .evaluate(()=>document.querySelector('.col-xs-10.col-sm-10.col-md-10').innerHTML)
-    .end()
-    .then(response=>{
-        getData(response);
-    }).catch(err=>{
-        console.log(err);
+
+const getPromiseEkantipur = () =>{
+    console.log('Trying to scrape from ekantipur.com');
+    return new Promise((resolve,reject)=>{
+        nightmare.goto(url)
+        .wait('.col-xs-10.col-sm-10.col-md-10')
+        .evaluate(()=>document.querySelector('.col-xs-10.col-sm-10.col-md-10').innerHTML)
+        .end()
+        .then(response=>{
+            resolve(getData(response));
+        }).catch(err=>{
+            reject(err);
+        })    
     })
+}
 
 getData=(html)=>{
     console.log('here')
@@ -24,8 +29,10 @@ getData=(html)=>{
         currentNews['title']=$(element).find('a').html();
         currentNews['link']=$(element).find('a').attr('href')
 
-        console.log(currentNews)
-        news.push(currentNews)
+        if(currentNews['title'].toLowerCase().includes('covid'))
+            news.push(currentNews)
     })
-    console.log(news.length);
+    return news
 }   
+
+module.exports=getPromiseEkantipur
