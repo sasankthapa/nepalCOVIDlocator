@@ -4,7 +4,7 @@ const getPromiseFromAnnapurna=require('../webscaper/newsFromAnnapurna');
 const getPromiseKtmPost=require('../webscaper/newsFromKtmPost');
 const getPromiseEkantipur=require('../webscaper/newsFromEkantipur');
 
-const PATH="/home/sasank/BiggerProjects/NepalCOVIDLocator/datascripts/outputJsons/";
+const PATH="/home/sasank/Documents/shellscripts/data/";
 
 async function getAndSaveData(){
     fs.writeFileSync(PATH+'annapurnaNews.json',JSON.stringify(await getPromiseFromAnnapurna()))

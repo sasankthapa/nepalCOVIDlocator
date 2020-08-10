@@ -1,7 +1,7 @@
 const fs=require('fs')
 const express=require('express');
 
-const path=process.env.JSON_LOCATION||'/home/sasank/BiggerProjects/NepalCOVIDLocator/datascripts/outputJsons/'
+const path=process.env.JSON_PATH||'/home/sasank/BiggerProjects/NepalCOVIDLocator/datascripts/outputJsons/'
 
 const daily=JSON.parse(fs.readFileSync(path+'daily.json'));
 const districts=JSON.parse(fs.readFileSync(path+'DistrictsData.json'));
