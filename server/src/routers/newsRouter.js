@@ -1,36 +1,24 @@
+const fs=require('fs');
 const express=require('express')
 
-const getPromiseFromAnnapurna=require('../webscaper/newsFromAnnapurna');
-const getPromiseKtmPost=require('../webscaper/newsFromKtmPost');
-const getPromiseEkantipur=require('../webscaper/newsFromEkantipur');
+const PATH=process.env.JSON_PATH;
+
+const annapurnaNews=JSON.parse(fs.readFileSync(PATH+'annapurnaNews.json'))
+const ktmpostNews=JSON.parse(fs.readFileSync(PATH+'ktmpostNews.json'))
+const ekantipurNews=JSON.parse(fs.readFileSync(PATH+'ekantipurNews.json'))
 
 const router=express.Router();
 
-router.get('/news/annapurna',async(req,res)=>{
-    try{
-        const news=await getPromiseFromAnnapurna();
-        res.send(news);
-    }catch(e){
-        res.status(400).send();
-    }
+router.get('/api/news/annapurna',async(req,res)=>{
+    res.send(annapurnaNews)
 })
 
-router.get('/news/ekantipur',async(req,res)=>{
-    try{
-        const news=await getPromiseEkantipur();
-        res.send(news);
-    }catch(e){
-        res.status(400).send();
-    }
+router.get('/api/news/ekantipur',async(req,res)=>{
+    res.send(ekantipurNews)
 })
 
-router.get('/news/ktmpost',async(req,res)=>{
-    try{
-        const news=await getPromiseKtmPost();
-        res.send(news);
-    }catch(e){
-        res.status(400).send();
-    }
+router.get('/api/news/ktmpost',async(req,res)=>{
+    res.send(ktmpostNews)
 })
 
 module.exports=router;

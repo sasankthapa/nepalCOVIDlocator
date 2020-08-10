@@ -8,7 +8,7 @@ import { Switch, Route } from 'react-router-dom';
 
 import ExactLocation from './components/ExactLocation/ExactLocation'
 import Visual from './components/Visual/Visual'
-import News from './components/NewsPage/News'
+import News from './components/NewsPage/News2'
 
 import {loadDataDefaultPage,loadDataVisualPage,loadDataNewsPage} from './APIs/getDataImp'
 

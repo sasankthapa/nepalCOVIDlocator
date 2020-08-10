@@ -5,6 +5,22 @@ const nightmare=Nightmare();
 const url='https://ekantipur.com/news'
 
 const getPromiseEkantipur = () =>{
+    getData=(html)=>{
+        const news=[];
+        const $=cheerio.load(html);
+        $('.normal').each((index,element)=>{
+            const currentNews={} 
+             
+            currentNews['title']=$(element).find('a').html();
+            currentNews['link']=$(element).find('a').attr('href');
+    
+            if(currentNews['title'].includes('&#x915;&#x94B;&#x930;&#x94B;&#x928;&#x93E;'))
+                news.push(currentNews)
+        })
+        console.log('ekantipur,done')
+        return news
+    }   
+
     console.log('Trying to scrape from ekantipur.com');
     return new Promise((resolve,reject)=>{
         nightmare.goto(url)
@@ -18,21 +34,5 @@ const getPromiseEkantipur = () =>{
         })    
     })
 }
-
-getData=(html)=>{
-    console.log('here')
-    const news=[];
-    const $=cheerio.load(html);
-    $('.normal').each((index,element)=>{
-        const currentNews={} 
-         
-        currentNews['title']=$(element).find('a').html();
-        currentNews['link']=$(element).find('a').attr('href')
-
-        if(currentNews['title'].toLowerCase().includes('covid'))
-            news.push(currentNews)
-    })
-    return news
-}   
 
 module.exports=getPromiseEkantipur
