@@ -24,6 +24,10 @@ const InformationCenter = (props) => {
         <div className={classes.container}>
             <div className={classes.CheckboxContainer}>
                 <label>
+                    All Cases
+                    <input value="off" type="checkbox" onChange={(e)=>props.showAllCasesHandler(e.target.checked)} disabled={props.disableShowAllCases}/>
+                </label>&nbsp;&nbsp;&nbsp;&nbsp;
+                <label>
                     Testing Hospitals
                     <input value="off" type="checkbox" onChange={(e)=>props.selectHospitalHandler(e.target.checked)}/>
                 </label>&nbsp;&nbsp;&nbsp;&nbsp;
