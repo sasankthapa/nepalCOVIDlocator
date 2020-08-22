@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import {getAllCasesRecursive} from '../../APIs/getCases'
 import NepalMap from '../Visual/Map/NepalMap'
 import InformationCenter from './InformationCenter/InformationCenter'
+import {casesArrayLength} from '../../APIs/getCases'
 
 import classes from './ExactLocation.module.css'
 
@@ -23,7 +24,8 @@ export default class ExactLocation extends Component{
         enableGraphs:false,
         nepal:true,
         biggermap:false,
-        updatekey:'1'
+        updatekey:'1',
+        casesStart:0
     }
 
     showAllCasesHandler=(value)=>{
@@ -49,6 +51,22 @@ export default class ExactLocation extends Component{
         if(this.state.geojsonHide && this.state.geojsonHide===name) 
             return this.setState({geojsonHide:null})
         this.setState({geojsonHide:name})
+    }
+
+    lessThanClickHandler=(e)=>{
+        if(this.state.casesStart===0){
+            return
+        }
+        const newCasesStart=this.state.casesStart-1000;
+        this.setState({casesStart:newCasesStart})
+    }
+
+    greaterThanClickHandler=(e)=>{
+        if(this.state.casesStart+1000>casesArrayLength){
+            return
+        }
+        const newCasesStart=this.state.casesStart+1000;
+        this.setState({casesStart:newCasesStart})
     }
 
     enableNepalHandler=(value)=>{
@@ -86,6 +104,7 @@ export default class ExactLocation extends Component{
                         geojsonHide={this.state.geojsonHide}
                         geojsonClickHandler={this.geojsonClickHandler.bind(this)}
                         biggermapHandler={this.biggermapHandler.bind(this)}
+                        casesStart={this.state.casesStart}
                     />
                 </div>
                 <div className={flexBoxClasses}>
@@ -93,12 +112,16 @@ export default class ExactLocation extends Component{
                         settings={{
                             className:classes.InfoContainer
                         }}
+                        lessThanClickHandler={this.lessThanClickHandler}
+                        greaterThanClickHandler={this.greaterThanClickHandler}
                         disableShowAllCases={this.state.disableShowAllCases}
                         showAllCasesHandler={this.showAllCasesHandler.bind(this)}
                         selectHospitalHandler={this.selectHospitalHandler.bind(this)}
                         updateHospitalHandler={this.updateHospitalHandler.bind(this)}
                         enableGraphsHandler={this.enableGraphsHandler.bind(this)}
                         enableNepalHandler={this.enableNepalHandler.bind(this)}
+                        casesStart={this.state.casesStart}
+                        showAllCases={this.state.showAllCases}
                         currentHospital={this.state.currentHospital} 
                         graphs={this.state.enableGraphs}
                         nepal={this.state.nepal}/>

@@ -7,6 +7,18 @@ import { hospitals } from '../../../APIs/getDataImp'
 import { casesArray } from '../../../APIs/getCases'
 
 const MarkerHandler = (props) =>{
+    let displayedCases=[]
+    if(props.allcases){
+        displayedCases=[];
+        for(var i=props.casesStart;i<props.casesStart+1000;i++){
+            displayedCases.push(<Marker
+                icon="covid"
+                key={i+'123'}
+                current={casesArray[i]}
+                position={casesArray[i].point.coordinates.reverse()}
+            />)
+        }
+    }
     return (
         <Aux>
             {props.hospital?hospitals.map((element,index)=>{
@@ -18,15 +30,7 @@ const MarkerHandler = (props) =>{
                     message={element.Name} 
                     updateHospitalHandler={props.updateHospitalHandler}/>
                 }):''}
-            {props.allcases?casesArray.map((element,index)=>{
-                console.log(index);
-                return <Marker
-                    icon="hospital"
-                    key={index+'123'}
-                    current={element}
-                    position={element.point.coordinates.reverse()}
-                />
-            }):''}
+            {displayedCases}
         </Aux>
     )
 }

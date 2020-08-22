@@ -15,7 +15,8 @@ var hospitalIcon= L.icon({
 
 var covidIcon= L.icon({
   iconUrl: covidIconRAW,
-  iconSize:[910,946],
+  iconSize:[910/32,946/32],
+  iconAnchor: [910/(32*2), 946/(32*2)]
 })
 
 const marker = (props) => {

@@ -4,6 +4,7 @@ import Graphs from '../../Graphs/Graph'
 import classes from './InformationCenter.module.css'
 
 import {npData} from '../../../APIs/getDataImp'
+import {casesArrayLength} from '../../../APIs/getCases'
 
 const InformationCenter = (props) => {
     var sortedArray=['Active Cases','Total Positive Cases', 'Recovered', 'Deaths', 'People in Quarentine', 'Confirmed Cases in Isolation' , 'PCR-Test', 'PCR-Test/million', 'Recovery Rate'];
@@ -42,6 +43,10 @@ const InformationCenter = (props) => {
                 
             </div>
         </div>
+        {props.showAllCases?
+            <div className={classes.container} style={{padding:'10px'}}>
+                 <p style={{textAlign:'center',display:'inline'}}>Cases: </p><button onClick={props.lessThanClickHandler} style={{display:'inline'}}>&lt; </button><p style={{textAlign:'center',display:'inline'}}> {props.casesStart}-{props.casesStart+1000} </p><button onClick={props.greaterThanClickHandler} style={{display:'inline'}}> &gt; </button><p style={{textAlign:'center',display:'inline'}}> out of {casesArrayLength}</p>
+            </div>:''}
         {props.currentHospital?
             <div className={classes.container}>
                 <div className={classes.InfoContainer}><span className={classes.close} onClick={(e)=>props.updateHospitalHandler(null)}>x</span>

@@ -30,7 +30,7 @@ const nepalMap = (props) => {
             <Portal position="bottomleft">
                 {props.showTiles?<button onClick={(e)=>props.biggermapHandler()}>+</button>:<Legend showLegend={props.showLegend} sortedBy={props.sortedBy} legendHandler={props.legendHandler}/>}
             </Portal>
-            {props.showMarkers? <MarkerHandler allcases={props.showAllCases} hospital={props.showHospital} updateHospitalHandler={props.updateHospitalHandler}/> : ''}
+            {props.showMarkers? <MarkerHandler casesStart={props.casesStart} allcases={props.showAllCases} hospital={props.showHospital} updateHospitalHandler={props.updateHospitalHandler}/> : ''}
         </Map>
     )
 }
