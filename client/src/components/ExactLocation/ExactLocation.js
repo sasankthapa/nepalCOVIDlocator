@@ -21,7 +21,7 @@ export default class ExactLocation extends Component{
         disableShowAllCases:true,
         showAllCases:false,
         geojsonHide:null,
-        enableGraphs:false,
+        enableGraphs:true,
         nepal:true,
         biggermap:false,
         updatekey:'1',
